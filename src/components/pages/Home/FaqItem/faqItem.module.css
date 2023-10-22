@@ -1,0 +1,55 @@
+.faq_item {
+    border-radius: 8px;
+    background: var(--surface-30, rgba(30, 31, 32, 0.30));
+    backdrop-filter: blur(15px);
+}
+
+.title_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 48px;
+    gap: 20px;
+}
+
+.text_block {
+    height: 0;
+    transition: all 400ms;
+    overflow: hidden;
+    padding: 0 48px;
+}
+
+.open .text_block {
+    height: auto;
+    padding: 0 48px 40px;
+}
+
+.title_block img {
+    transition: all 400ms;
+}
+
+.open .title_block img {
+    transform: rotate(180deg);
+}
+
+.title_block span {
+    transition: all 400ms;
+}
+
+.open .title_block span {
+    color: var(--accent-color)
+}
+
+@media screen and (max-width: 768px) {
+    .title_block {
+        padding: 20px;
+    }
+
+    .text_block {
+        padding: 0 20px;
+    }
+
+    .open .text_block {
+        padding: 0 20px 20px;
+    }
+}

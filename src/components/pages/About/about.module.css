@@ -1,0 +1,264 @@
+.intro_bg_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    width: 100vw;
+    max-width: 4500px;
+}
+
+.intro_bg_wrapper img {
+    width: 100%;
+    min-width: 500px;
+}
+
+@media screen and (min-height: 1440px) {
+    .bg1 {
+        max-height: 100vh;
+    }
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 132px;
+}
+
+.intro__title {
+    margin-bottom: 24px;
+}
+
+.intro__text_row {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    justify-content: center;
+}
+
+.intro__subtext {
+    margin-bottom: 32px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.text_info {
+    border-radius: 8px;
+    background: var(--surface-30, rgba(30, 31, 32, 0.30));
+    backdrop-filter: blur(1.5px);
+    padding: 64px 80px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text_info_logo {
+    width: 105px;
+    height: 105px;
+    margin-bottom: 64px;
+}
+
+.text_info_title {
+    color: var(--black-100)
+}
+
+.text_info__reg_text {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.text_info__list {
+    display: flex;
+    gap: 40px;
+}
+
+.text_info__list div {
+    width: calc(50% - 20px);
+}
+
+.img_info__title_text {
+    max-width: 1000px;
+}
+
+.img_info__photo {
+    position: relative;
+    background: var(--surface-30, rgba(30, 31, 32, 0.30));
+    backdrop-filter: blur(1.5px);
+    z-index: 10;
+}
+
+.img_info__card {
+    border-radius: 8px;
+    background: var(--surface-30, rgba(30, 31, 32, 0.30));
+    backdrop-filter: blur(1.5px);
+    padding: 32px 40px;
+    max-width: 570px;
+    position: absolute;
+    z-index: 1;
+}
+
+.img_info__card:nth-child(2) {
+    top: 40px;
+    right: -20px;
+}
+
+.img_info__card:nth-child(3) {
+    top: 300px;
+    left: -20px;
+}
+
+.img_info__card:nth-child(4) {
+    max-width: 1000px;
+    bottom: -50px;
+    left: 10%;
+}
+
+.img_info__card:nth-child(4) div span {
+    font-weight: 500;
+    line-height: 140%;
+}
+
+.img_info__card_text {
+    margin-top: 24px;
+}
+
+.last_text_block {
+    position: relative;
+    padding: 0;
+}
+
+.last_text_block_btn {
+    flex-shrink: 0;
+}
+
+.text_info_re {
+    max-width: 920px;
+    margin-top: 40px;
+}
+
+.last_text_block_content {
+    padding: 64px 80px;
+    border-radius: 8px;
+    background: var(--surface-30, rgba(30, 31, 32, 0.30));
+    backdrop-filter: blur(1.5px);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 120px;
+}
+
+.bg2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    top: -1100px;
+    width: 100vw;
+    max-width: 100%;
+    right: calc(((100vw - 1420px) / -2) - 40px);
+    z-index: -10;
+    overflow: hidden;
+}
+
+.bg2 img {
+    width: 100%;
+    min-width: 300px;
+}
+
+@media screen and (max-width: 1420px) {
+    .bg2 {
+        right: -40px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .img_info__card {
+        position: static;
+        max-width: none;
+    }
+
+    .img_info__photo {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .text_info {
+        padding: 64px 40px;
+    }
+
+    .last_text_block {
+        padding: 0;
+    }
+
+    .last_text_block_content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .img_info__card {
+        padding: 40px 20px;
+    }
+
+    .img_info__photo {
+        gap: 20px;
+    }
+
+    .text_info {
+        padding: 40px 20px;
+    }
+
+    .text_info__list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .text_info__list div {
+        width: 100%;
+    }
+
+    .text_info__reg_text {
+        margin: 48px 0 16px;
+    }
+
+    .text_info_re {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 130%;
+        letter-spacing: -0.24px;
+        margin-top: 12px;
+    }
+
+    .bg2 {
+        top: -500px;
+        right: -20px;
+    }
+
+    .text_info_logo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 32px;
+    }
+
+    .text_info__reg_text {
+        margin-top: 12px;
+    }
+
+    .last_text_block {
+        padding: 0;
+    }
+
+    .last_text_block_content {
+        padding: 40px 20px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .bg2 {
+        top: -100px;
+    }
+}

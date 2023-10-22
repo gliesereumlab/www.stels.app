@@ -1,0 +1,12 @@
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="selected-indicator">
+        <mask id="mask0_187_44" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="44" height="44">
+            <rect id="Bounding box" width="44" height="44" fill="#D9D9D9"/>
+        </mask>
+        <g mask="url(#mask0_187_44)">
+            <path id="arrow_forward"
+                  d="M29.6529 23.8333H7.33203V20.1666H29.6529L19.3862 9.89998L21.9987 7.33331L36.6654 22L21.9987 36.6666L19.3862 34.1L29.6529 23.8333Z"
+                  fill="#E99531"/>
+        </g>
+    </g>
+</svg>
