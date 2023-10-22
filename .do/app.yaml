@@ -1,9 +1,0 @@
-name: www-stels-app
-services:
-  - build_command: npm build
-    environment_slug: node-js
-    github:
-      branch: main
-      deploy_on_push: true
-      repo: gliesereumlab/www.stels.app.git
-    name: www-stels-app
