@@ -88,6 +88,17 @@
     .nav_link {
         display: none;
     }
+
+    body {
+        padding-top: 56px;
+    }
+
+    .header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 20;
+    }
 }
 
 @media screen and (max-width: 845px) {
@@ -112,6 +123,10 @@
     }
 
     .links_list {
+        gap: 24px;
+    }
+
+    .part {
         gap: 24px;
     }
 }

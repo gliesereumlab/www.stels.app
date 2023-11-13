@@ -3,6 +3,7 @@
     background: var(--surface-30);
     backdrop-filter: blur(15px);
     margin-top: 260px;
+    position: relative;
 }
 
 .content {

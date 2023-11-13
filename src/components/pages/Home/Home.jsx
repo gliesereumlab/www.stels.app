@@ -1,9 +1,9 @@
-import {Text, textTypes} from "../../shared/Text/Text";
-import {Btn} from "../../shared/Btn/Btn";
+import { Text, textTypes } from "../../shared/Text/Text";
+import { Btn } from "../../shared/Btn/Btn";
 import styles from "./home.module.css";
-import {useEffect, useRef, useState} from "react";
-import {Link, useLocation} from "react-router-dom";
-import {FaqItem} from "./FaqItem/FaqItem";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FaqItem } from "./FaqItem/FaqItem";
 
 import starsIcon from "../assets/stars-icon.svg";
 import bg from "../assets/bg-1.svg";
@@ -98,7 +98,7 @@ export const Home = () => {
         faq: useRef(),
     }
 
-    const {hash} = useLocation();
+    const { hash } = useLocation();
 
     useEffect(() => {
         if (hash) {
@@ -119,24 +119,27 @@ export const Home = () => {
     return (
         <div className="container">
             <div className={classNames([styles.intro_bg_wrapper])}>
-                <img src={bg} alt="bg" className={styles.bg1}/>
+                <img src={bg} alt="bg" className={styles.bg1} />
             </div>
             <section className={classNames([styles.intro])}>
                 <div className={styles.intro__title}>
-                    <img src={blur} alt="blur" className={classNames([styles.intro_blur])}/>
+                    <img src={blur} alt="blur" className={classNames([styles.intro_blur])} />
                     <div className={styles.intro__text_row}>
-                        <Text data={[{text: "[ STELS ] ", accent: true}]} type={textTypes.PageTitle}/>
+                        <Text data={"[ STELS ]"} type={textTypes.PageTitle} />
                         {/*<img src={starsIcon} alt="icon" className={classNames([styles.intro_stars])}/>*/}
                     </div>
-                    <Text classes={['small']} text={"WEB 3.0 by Gliesereum"} type={textTypes.PageTitle}/>
+                    <Text classes={['small']} text={"Automated capital and market management"} type={textTypes.PageTitle} />
                 </div>
-                <Text text={"Capital and market management. Automated."} classes={[styles.intro__subtext]}/>
-                <Btn type="link" action="https://web.stels.app/" text={"Try now"} className={styles.intro__btn}/>
+                <Text
+                    data={"By Gliesereum"}
+                    classes={[styles.intro__subtext]}
+                />
+                <Btn type="link" action="https://web.stels.app/" text={"Try now"} className={styles.intro__btn} />
             </section>
             <section className={classNames(["section", styles.info_f])} id={"solutions"} ref={anchors.solutions}>
                 <div>
                     <Text
-                        data={[{text: "Tailored solutions "}, {text: "for your needs", accent: true}]}
+                        data={"Tailored solutions for your needs"}
                         type={textTypes.BlockTitle}
                         classes={[styles.intro_f__title]}
                     />
@@ -147,11 +150,11 @@ export const Home = () => {
                                     <div key={solution.id} onClick={() => {
                                         setOpenedSolution(solution.id)
                                     }}
-                                         className={classNames(styles.info_f__text_title_block, openedSolution !== solution.id && "hover")}>
+                                        className={classNames(styles.info_f__text_title_block, openedSolution !== solution.id && "hover")}>
                                         {openedSolution === solution.id && <img src={arrowIcon} alt="arrow icon"
-                                                                                className={styles.info_f__text_title_arrow}/>}
+                                            className={styles.info_f__text_title_arrow} />}
                                         <Text text={solution.title}
-                                              type={openedSolution === solution.id ? textTypes.TextTitle : textTypes.regularDark}/>
+                                            type={openedSolution === solution.id ? textTypes.TextTitle : textTypes.regularDark} />
                                     </div>
                                 )
                             })
@@ -160,7 +163,7 @@ export const Home = () => {
                 </div>
                 <div className={styles.solutions_slider}>
                     <div className={styles.solutions_slider_wrapper}
-                         style={{"transform": `translateX(${-((openedSolution - 1) * solutionSlideWidth)}px)`}}>
+                        style={{ "transform": `translateX(${-((openedSolution - 1) * solutionSlideWidth)}px)` }}>
                         {
                             solutions.map(solution => {
                                 return (
@@ -169,9 +172,9 @@ export const Home = () => {
                                             solution.info.map(item => {
                                                 return (
                                                     <div key={`${item.text}-${solution.id}`}
-                                                         className={styles.info_f__list_item}>
-                                                        <img src={item.icon} alt="icon"/>
-                                                        <Text text={item.text}/>
+                                                        className={styles.info_f__list_item}>
+                                                        <img src={item.icon} alt="icon" />
+                                                        <Text text={item.text} />
                                                     </div>
                                                 )
                                             })}
@@ -192,10 +195,10 @@ export const Home = () => {
                                 setOpenedSolution(openedSolution - 1)
                             }
                         }}
-                             className={classNames([styles.solutions_slider_nav_btn])}
+                            className={classNames([styles.solutions_slider_nav_btn])}
                         >
                             <img src={arrowIconActive} alt="next"
-                                 className={classNames([styles.solutions_slider_nav_btn_prev])}/>
+                                className={classNames([styles.solutions_slider_nav_btn_prev])} />
                         </div>
                         <div onClick={() => {
                             if (openedSolution + 1 > solutions.length) {
@@ -204,9 +207,9 @@ export const Home = () => {
                                 setOpenedSolution(openedSolution + 1)
                             }
                         }}
-                             className={classNames([styles.solutions_slider_nav_btn])}
+                            className={classNames([styles.solutions_slider_nav_btn])}
                         >
-                            <img src={arrowIconActive} alt="prev"/>
+                            <img src={arrowIconActive} alt="prev" />
                         </div>
                     </div>
                 }
@@ -215,7 +218,7 @@ export const Home = () => {
             <section className={classNames(["section"])} id={"ai_systems"} ref={anchors.ai_systems}>
                 <div className="block_title">
                     <Text
-                        data={[{text: "Automated ", accent: true}, {text: "systems"}]}
+                        data={"Automation systems"}
                         type={textTypes.BlockTitle}
                     />
                     <Text
@@ -226,18 +229,18 @@ export const Home = () => {
                 </div>
                 <div className={styles.info_s__content}>
                     <div className={styles.info_s__content_item}>
-                        <img src={info2Icon1} alt="icon" className={styles.info_s__content_img}/>
+                        <img src={info2Icon1} alt="icon" className={styles.info_s__content_img} />
                         <Text text={"10 specialized bots"} type={textTypes.TextTitle}
-                              classes={[styles.info_s__content_title]}/>
+                            classes={[styles.info_s__content_title]} />
                         <Text
                             text={"Use ready-to-go setup of bots, that are united into Botboxes - teams of specialized AI-algorithms that are combining efforts to maximize the effieciency and perform the ordered task."}
                             type={textTypes.regularDark}
                         />
                     </div>
                     <div>
-                        <img src={info2Icon2} alt="icon" className={styles.info_s__content_img}/>
+                        <img src={info2Icon2} alt="icon" className={styles.info_s__content_img} />
                         <Text text={"Neuronic control module"} type={textTypes.TextTitle}
-                              classes={[styles.info_s__content_title]}/>
+                            classes={[styles.info_s__content_title]} />
                         <Text
                             text={"Enhance your ROI and metrics with our neuronic decision-making system, that analyses streaming RAW data from all markets and communicates with all the bots to immediately execute."}
                             type={textTypes.regularDark}
@@ -247,59 +250,59 @@ export const Home = () => {
             </section>
             <section className={classNames(["section", styles.ecosystem])} id={"ecosystem"} ref={anchors.ecosystem}>
                 <div className={styles.bg2}>
-                    <img src={bg2Blur} alt="bg"/>
+                    <img src={bg2Blur} alt="bg" />
                 </div>
                 <div className="block_title">
                     <Text
-                        data={[{text: "Our "}, {text: "ecosystem", accent: true}]}
+                        data={"Main blocks"}
                         type={textTypes.BlockTitle}
                     />
                 </div>
                 <div className={styles.info_fi__content_grid}>
                     <div className={styles.info_fi__content_item}>
                         <Link to="https://gliesereum.com/" target="_blank">
-                            <img src={logoIcon} alt="icon"/>
+                            <img src={logoIcon} alt="icon" />
                         </Link>
                         <div>
-                            <Text text={"Gliesereum сross-chain blockchain"} type={textTypes.TextTitle}/>
+                            <Text text={"Gliesereum сross-chain blockchain"} type={textTypes.TextTitle} />
                             <Text
                                 text={"Dive into a blockchain network that transcends boundaries. Our cross-chain technology ensures fluidity, security, and efficiency, bridging various blockchain environments for seamless transactions and interactions."}
-                                type={textTypes.regularDark}/>
+                                type={textTypes.regularDark} />
                         </div>
                     </div>
                     <div className={styles.info_fi__content_item}>
                         <Link to="https://github.com/gliesereumlab/wallet" target="_blank">
-                            <img src={walletIcon} alt="icon"/>
+                            <img src={walletIcon} alt="icon" />
                         </Link>
                         <div>
-                            <Text text={"Gliesereum wallet"} type={textTypes.TextTitle}/>
+                            <Text text={"Gliesereum wallet"} type={textTypes.TextTitle} />
                             <Text
                                 text={"Your gateway to the Gliesereum universe. Experience a safe, user-friendly, and intuitive wallet designed to manage, transfer, and store your assets with unparalleled ease."}
-                                type={textTypes.regularDark}/>
+                                type={textTypes.regularDark} />
                         </div>
                     </div>
                     <div className={styles.info_fi__content_item}>
                         <Link target="_blank" to="https://web.stels.app/">
-                            <img src={graphIcon} alt="icon"/>
+                            <img src={graphIcon} alt="icon" />
 
                         </Link>
                         <div>
-                            <Text text={"Stels by Gliesereum Web 3.0"} type={textTypes.TextTitle}/>
+                            <Text text={"Stels protocol"} type={textTypes.TextTitle} />
                             <Text
-                                text={"The next frontier in web evolution. Embrace a decentralized, user-centric web environment, offering transparency, control, and an enhanced user experience. We innovate and bring new ways of secure data transfer and market maintenance."}
-                                type={textTypes.regularDark}/>
+                                text={"The next frontier in web evolution. Embrace a decentralized, encrypted data transfer protocol. We innovate and bring new ways of secure data transfer and market maintenance, without risks of leaking any sensitive and private data"}
+                                type={textTypes.regularDark} />
                         </div>
                     </div>
                     <div className={styles.info_fi__content_item}>
                         <Link target="_blank" to="https://github.com/gliesereumlab/web.stels.app">
-                            <img src={atomIcon} alt="icon"/>
+                            <img src={atomIcon} alt="icon" />
 
                         </Link>
                         <div>
-                            <Text text={"AI-powered automation system — Botbox"} type={textTypes.TextTitle}/>
+                            <Text text={"AI-powered Automation Systems"} type={textTypes.TextTitle} />
                             <Text
-                                text={"Automation reimagined. With Botbox, tap into the prowess of advanced AI algorithms, automating market processes and yield generation to optimize profitability and efficiency."}
-                                type={textTypes.regularDark}/>
+                                text={"Automation reimagined. With Stels, tap into the prowess of advanced AI algorithms, automating market processes and yield generation to optimize profitability and efficiency."}
+                                type={textTypes.regularDark} />
                         </div>
                     </div>
                 </div>
@@ -309,98 +312,72 @@ export const Home = () => {
                 <div className={styles.unlock_block}>
                     <div>
                         <Text
-                            data={[
-                                {
-                                    text: "Unlock "
-                                },
-                                {
-                                    text: "the full potential",
-                                    accent: true,
-                                }
-                            ]}
-                            type={textTypes.BlockTitle}/>
+                            data={"Unlock the full potential"}
+                            type={textTypes.BlockTitle} />
                         <Text text={"of Stels software and access an expansive suite of AI automation systems"}
-                              type={textTypes.medium} classes={[styles.unlock_block_text]}/>
+                            type={textTypes.medium} classes={[styles.unlock_block_text]} />
                     </div>
                     <Btn type="link" action="https://web.stels.app/" text={"get access"}
-                         classes={[styles.unlock_block_btn]}/>
+                        classes={[styles.unlock_block_btn]} />
                 </div>
             </section>
 
             <section className={classNames(["section", styles.media])} id={"media"} ref={anchors.media}>
                 <div className={styles.bg3}>
-                    <img src={bg3Blur} alt="bg"/>
+                    <img src={bg3Blur} alt="bg" />
                 </div>
                 <div className="block_title">
                     <Text
-                        data={[{text: "Press "}, {text: "about us", accent: true}]}
+                        data={"Press about us"}
                         type={textTypes.BlockTitle}
                     />
                 </div>
                 <div className={styles.about_cards}>
                     <div className={styles.about_card}>
-                        <Text text={"Binance square"} classes={[styles.about_card_text]}/>
-                        <a target="_blank" href="https://www.binance.com/en/feed/post/1226280?ref=506455821" className={classNames(["hover", styles.about_card_link])}>
+                        <Text text={"Binance square"} classes={[styles.about_card_text]} />
+                        <a target="_blank" href="https://www.binance.com/en/feed/post/1226280?ref=506455821" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
-                                data={[{
-                                    text: "read the article",
-                                    accent: true,
-                                }]}
+                                data={"read the article"}
                             />
                         </a>
                     </div>
                     <div className={styles.about_card}>
-                        <Text text={"KITKO"} classes={[styles.about_card_text]}/>
-                        <a target="_blank" href="https://kitko.com/15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024/" className={classNames(["hover", styles.about_card_link])}>
+                        <Text text={"KITKO"} classes={[styles.about_card_text]} />
+                        <a target="_blank" href="https://kitko.com/15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024/" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
-                                data={[{
-                                    text: "read the article",
-                                    accent: true,
-                                }]}
+                                data={"read the article"}
                             />
                         </a>
                     </div>
                     <div className={styles.about_card}>
-                        <Text text={"Coin market cap"} classes={[styles.about_card_text]}/>
-                        <a target="_blank" href="https://coinmarketcap.com/headlines/news/15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024/" className={classNames(["hover", styles.about_card_link])}>
+                        <Text text={"Coin market cap"} classes={[styles.about_card_text]} />
+                        <a target="_blank" href="https://coinmarketcap.com/headlines/news/15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024/" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
-                                data={[{
-                                    text: "read the article",
-                                    accent: true,
-                                }]}
+                                data={"read the article"}
                             />
                         </a>
                     </div>
                     <div className={styles.about_card}>
-                        <Text text={"Min Max"} classes={[styles.about_card_text]}/>
-                        <a target="_blank" href="https://minmax.ai/news/2023-09-15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024" className={classNames(["hover", styles.about_card_link])}>
+                        <Text text={"Min Max"} classes={[styles.about_card_text]} />
+                        <a target="_blank" href="https://minmax.ai/news/2023-09-15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
-                                data={[{
-                                    text: "read the article",
-                                    accent: true,
-                                }]}
+                                data={"read the article"}
                             />
                         </a>
                     </div>
                     <div className={styles.about_card}>
-                        <Text text={"One news page"} classes={[styles.about_card_text]}/>
-                        <a target="_blank" href="https://www.onenewspage.com/n/World/1zpnjb74k6/15-Most-Promising-Web3-Startups-That-Will-Be.htm" className={classNames(["hover", styles.about_card_link])}>
+                        <Text text={"One news page"} classes={[styles.about_card_text]} />
+                        <a target="_blank" href="https://www.onenewspage.com/n/World/1zpnjb74k6/15-Most-Promising-Web3-Startups-That-Will-Be.htm" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
-                                data={[{
-                                    text: "read the article",
-                                    accent: true,
-                                }]}
+                                data={"read the article"}
                             />
                         </a>
                     </div>
                     <div className={styles.about_card}>
-                        <Text text={"Traiding view"} classes={[styles.about_card_text]}/>
-                        <a target="_blank" href="https://www.tradingview.com/news/cryptodaily:2ac1a3924094b:0-15-most-promising-web3-startups-that-will-be-on-everyone-s-lips-in-2024/" className={classNames(["hover", styles.about_card_link])}>
+                        <Text text={"Traiding view"} classes={[styles.about_card_text]} />
+                        <a target="_blank" href="https://www.tradingview.com/news/cryptodaily:2ac1a3924094b:0-15-most-promising-web3-startups-that-will-be-on-everyone-s-lips-in-2024/" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
-                                data={[{
-                                    text: "read the article",
-                                    accent: true,
-                                }]}
+                                data={"read the article"}
                             />
                         </a>
                     </div>
@@ -409,7 +386,7 @@ export const Home = () => {
 
             <section className="section" id={"faq"} ref={anchors.faq}>
                 <div className="block_title">
-                    <Text text={"FAQ"} type={textTypes.BlockTitle}/>
+                    <Text text={"FAQ"} type={textTypes.BlockTitle} />
                 </div>
                 <div className={classNames([styles.faq__content])}>
                     <FaqItem
