@@ -6,17 +6,18 @@ import { Link, useLocation } from "react-router-dom";
 import { FaqItem } from "./FaqItem/FaqItem";
 
 import starsIcon from "../assets/stars-icon.svg";
-import bg from "../assets/bg-1.svg";
-import bg3Blur from "./assets/bg-3.svg";
-import bg2Blur from "../assets/bg-2-blur.svg";
+import bg from "../assets/bg-1.png";
+import bg3Blur from "./assets/bg-3.png";
+import bg2Blur from "../assets/bg-2-blur.png";
 import classNames from "classnames";
 import arrowIcon from "../../assets/selected-indicator.svg";
+//import videoHeader from "./assets/vid18.mp4"
 
-import info2Icon1 from "./assets/illustration.svg";
-import info2Icon2 from "./assets/illustration2.svg";
-import walletIcon from "./assets/013-wallet.svg";
+import illustrationBots from "./assets/illustration-logo.png";
+import illustrationGraph from "./assets/illustration-graph.png";
+import walletIcon from "./assets/wallet.svg";
 import atomIcon from "./assets/003-atom.svg";
-import graphIcon from "./assets/graph-icon.svg";
+import netIcon from "./assets/net.svg";
 import arrowIconActive from "./assets/selected-indicator-active.svg";
 import blur from "../assets/blur.svg";
 import logoIcon from "./assets/logo-icon.svg";
@@ -30,6 +31,9 @@ import dataIcon from "./assets/data.svg";
 import strategyIcon from "./assets/strategy.svg";
 import botIcon from "./assets/bot.svg";
 import withdrawalIcon from "./assets/withdrawal.svg";
+
+import 'animate.css';
+import { useAnimation } from "../../shared/hooks/useAnimation";
 
 const solutions = [
     {
@@ -116,25 +120,73 @@ export const Home = () => {
         :
         400
 
+    // animation
+    const animation = {
+        card_left: {
+            ref: useRef(),
+            animationClass: "animate__fadeInLeft",
+        },
+        card_right: {
+            ref: useRef(),
+            animationClass: "animate__fadeInRight",
+        },
+        cards_text: {
+            refs: [useRef(), useRef()],
+            animationClass: "animate__fadeInDown",
+        },
+        main_blocks_1: {
+            ref: useRef(),
+            animationClass: "animate__fadeInLeft",
+        },
+        main_blocks_2: {
+            ref: useRef(),
+            animationClass: "animate__fadeInRight",
+        },
+        main_blocks_3: {
+            ref: useRef(),
+            animationClass: "animate__fadeInLeft",
+        },
+        main_blocks_4: {
+            ref: useRef(),
+            animationClass: "animate__fadeInRight",
+        },
+        unlock: {
+            ref: useRef(),
+            animationClass: "animate__fadeIn",
+        },
+        press: {
+            refs: [useRef(), useRef(), useRef(), useRef(), useRef(), useRef()],
+            animationClass: "animate__fadeInDown",
+        },
+        faq: {
+            refs: [useRef(), useRef(), useRef(), useRef(), useRef()],
+            animationClass: "animate__fadeInDown",
+        }
+    }
+
+    useAnimation(animation);
+    // animation end
+
     return (
         <div className="container">
-            <div className={classNames([styles.intro_bg_wrapper])}>
+            <div className={classNames([styles.intro_bg_wrapper])} id={"intro"}>
                 <img src={bg} alt="bg" className={styles.bg1} />
+                {/* <video className={classNames([styles.intro_video])} autoplay="true" loop="true" muted="true">
+                    <source src={bg} type="video/mp4"/>
+                    Your browser does not support the video tag. Please update your browser.
+                </video> */}
             </div>
             <section className={classNames([styles.intro])}>
-                <div className={styles.intro__title}>
-                    <img src={blur} alt="blur" className={classNames([styles.intro_blur])} />
-                    <div className={styles.intro__text_row}>
-                        <Text data={"[ STELS ]"} type={textTypes.PageTitle} />
-                        {/*<img src={starsIcon} alt="icon" className={classNames([styles.intro_stars])}/>*/}
+                    <div className={styles.intro__title}>
+                        {/* <img src={blur} alt="blur" className={classNames([styles.intro_blur])} /> */}
+                        <div className={styles.intro__text_row}>
+                                <Text classes={["animate__animated", "animate__fadeInDown"]} data={"[ STELS ]"} type={textTypes.PageTitle} />
+                                {/*<img src={starsIcon} alt="icon" className={classNames([styles.intro_stars])}/>*/}
+                        </div>
+                        <Text classes={['small', "animate__animated", "animate__fadeInDown"]} text={"Automated capital and market management"} type={textTypes.PageTitle} />
                     </div>
-                    <Text classes={['small']} text={"Automated capital and market management"} type={textTypes.PageTitle} />
-                </div>
-                <Text
-                    data={"By Gliesereum"}
-                    classes={[styles.intro__subtext]}
-                />
-                <Btn type="link" action="https://web.stels.app/" text={"Try now"} className={styles.intro__btn} />
+                    <Text data={"By Gliesereum"} classes={[styles.intro__subtext]}/>
+                    <Btn type="link" action="https://web.stels.app/" text={"Try now"} className={styles.intro__btn} />
             </section>
             <section className={classNames(["section", styles.info_f])} id={"solutions"} ref={anchors.solutions}>
                 <div>
@@ -229,22 +281,28 @@ export const Home = () => {
                 </div>
                 <div className={styles.info_s__content}>
                     <div className={styles.info_s__content_item}>
-                        <img src={info2Icon1} alt="icon" className={styles.info_s__content_img} />
-                        <Text text={"10 specialized bots"} type={textTypes.TextTitle}
-                            classes={[styles.info_s__content_title]} />
-                        <Text
-                            text={"Use ready-to-go setup of bots, that are united into Botboxes - teams of specialized AI-algorithms that are combining efforts to maximize the effieciency and perform the ordered task."}
-                            type={textTypes.regularDark}
-                        />
+                        <img src={illustrationBots} alt="icon" data-animation-id={"card_left"} ref={animation.card_left.ref} className={classNames([styles.info_s__content_img, "animate__animated"])} />
+                        <div ref={animation.cards_text.refs[0]} data-animation-id={"cards_text"}  className={classNames(["animate__animated"])} >
+                            <Text text={"12 specialized algorithms"} type={textTypes.TextTitle}
+                                classes={[styles.info_s__content_title]} />
+                            <Text
+                                text={"Use ready-to-go setup of algorithms, that are united into Botboxes - teams of specialized AI-workers that are combining efforts to maximize the efficiency and perform the ordered task."}
+                                type={textTypes.regularDark}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        <img src={info2Icon2} alt="icon" className={styles.info_s__content_img} />
-                        <Text text={"Neuronic control module"} type={textTypes.TextTitle}
-                            classes={[styles.info_s__content_title]} />
-                        <Text
-                            text={"Enhance your ROI and metrics with our neuronic decision-making system, that analyses streaming RAW data from all markets and communicates with all the bots to immediately execute."}
-                            type={textTypes.regularDark}
-                        />
+                    <div className={styles.info_s__content_item}>
+                        <div>
+                            <img src={illustrationGraph} alt="icon" data-animation-id={"card_right"} ref={animation.card_right.ref} className={classNames([styles.info_s__content_img, "animate__animated"])} />
+                            <div data-animation-id={"cards_text"} ref={animation.cards_text.refs[1]} className={classNames(["animate__animated"])}>
+                                <Text text={"Neuronic control module"} type={textTypes.TextTitle}
+                                    classes={[styles.info_s__content_title]} />
+                                <Text
+                                    text={"Enhance your ROI and metrics with our neuronic decision-making system, that analyses streaming RAW data from all markets and communicates with all the bots to immediately execute."}
+                                    type={textTypes.regularDark}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -259,7 +317,7 @@ export const Home = () => {
                     />
                 </div>
                 <div className={styles.info_fi__content_grid}>
-                    <div className={styles.info_fi__content_item}>
+                    <div data-animation-id={"main_blocks_1"} ref={animation.main_blocks_1.ref} className={classNames([styles.info_fi__content_item, "animate__animated"])}>
                         <Link to="https://gliesereum.com/" target="_blank">
                             <img src={logoIcon} alt="icon" />
                         </Link>
@@ -270,7 +328,7 @@ export const Home = () => {
                                 type={textTypes.regularDark} />
                         </div>
                     </div>
-                    <div className={styles.info_fi__content_item}>
+                    <div data-animation-id={"main_blocks_2"} ref={animation.main_blocks_2.ref} className={classNames([styles.info_fi__content_item, "animate__animated"])}>
                         <Link to="https://github.com/gliesereumlab/wallet" target="_blank">
                             <img src={walletIcon} alt="icon" />
                         </Link>
@@ -281,9 +339,9 @@ export const Home = () => {
                                 type={textTypes.regularDark} />
                         </div>
                     </div>
-                    <div className={styles.info_fi__content_item}>
+                    <div data-animation-id={"main_blocks_3"} ref={animation.main_blocks_3.ref} className={classNames([styles.info_fi__content_item, "animate__animated"])}>
                         <Link target="_blank" to="https://web.stels.app/">
-                            <img src={graphIcon} alt="icon" />
+                            <img src={netIcon} alt="icon" />
 
                         </Link>
                         <div>
@@ -293,9 +351,9 @@ export const Home = () => {
                                 type={textTypes.regularDark} />
                         </div>
                     </div>
-                    <div className={styles.info_fi__content_item}>
+                    <div data-animation-id={"main_blocks_4"} ref={animation.main_blocks_4.ref} className={classNames([styles.info_fi__content_item, "animate__animated"])}>
                         <Link target="_blank" to="https://github.com/gliesereumlab/web.stels.app">
-                            <img src={atomIcon} alt="icon" />
+                            <img src={aiIcon} alt="icon" />
 
                         </Link>
                         <div>
@@ -309,7 +367,7 @@ export const Home = () => {
             </section>
 
             <section className="section">
-                <div className={styles.unlock_block}>
+                <div data-animation-id={"unlock"} ref={animation.unlock.ref} className={classNames([styles.unlock_block, "animate__animated"])}>
                     <div>
                         <Text
                             data={"Unlock the full potential"}
@@ -333,7 +391,7 @@ export const Home = () => {
                     />
                 </div>
                 <div className={styles.about_cards}>
-                    <div className={styles.about_card}>
+                    <div data-animation-id={"press"} ref={animation.press.refs[0]} className={classNames([styles.about_card, "animate__animated"])}>
                         <Text text={"Binance square"} classes={[styles.about_card_text]} />
                         <a target="_blank" href="https://www.binance.com/en/feed/post/1226280?ref=506455821" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
@@ -341,7 +399,7 @@ export const Home = () => {
                             />
                         </a>
                     </div>
-                    <div className={styles.about_card}>
+                    <div data-animation-id={"press"} ref={animation.press.refs[1]} className={classNames([styles.about_card, "animate__animated"])}>
                         <Text text={"KITKO"} classes={[styles.about_card_text]} />
                         <a target="_blank" href="https://kitko.com/15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024/" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
@@ -349,7 +407,7 @@ export const Home = () => {
                             />
                         </a>
                     </div>
-                    <div className={styles.about_card}>
+                    <div data-animation-id={"press"} ref={animation.press.refs[2]} className={classNames([styles.about_card, "animate__animated"])}>
                         <Text text={"Coin market cap"} classes={[styles.about_card_text]} />
                         <a target="_blank" href="https://coinmarketcap.com/headlines/news/15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024/" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
@@ -357,7 +415,7 @@ export const Home = () => {
                             />
                         </a>
                     </div>
-                    <div className={styles.about_card}>
+                    <div data-animation-id={"press"} ref={animation.press.refs[3]} className={classNames([styles.about_card, "animate__animated"])}>
                         <Text text={"Min Max"} classes={[styles.about_card_text]} />
                         <a target="_blank" href="https://minmax.ai/news/2023-09-15-most-promising-web3-startups-that-will-be-on-everyones-lips-in-2024" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
@@ -365,7 +423,7 @@ export const Home = () => {
                             />
                         </a>
                     </div>
-                    <div className={styles.about_card}>
+                    <div data-animation-id={"press"} ref={animation.press.refs[4]} className={classNames([styles.about_card, "animate__animated"])}>
                         <Text text={"One news page"} classes={[styles.about_card_text]} />
                         <a target="_blank" href="https://www.onenewspage.com/n/World/1zpnjb74k6/15-Most-Promising-Web3-Startups-That-Will-Be.htm" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
@@ -373,7 +431,7 @@ export const Home = () => {
                             />
                         </a>
                     </div>
-                    <div className={styles.about_card}>
+                    <div data-animation-id={"press"} ref={animation.press.refs[5]} className={classNames([styles.about_card, "animate__animated"])}>
                         <Text text={"Traiding view"} classes={[styles.about_card_text]} />
                         <a target="_blank" href="https://www.tradingview.com/news/cryptodaily:2ac1a3924094b:0-15-most-promising-web3-startups-that-will-be-on-everyone-s-lips-in-2024/" className={classNames(["hover", styles.about_card_link])} rel="noreferrer">
                             <Text
@@ -389,26 +447,36 @@ export const Home = () => {
                     <Text text={"FAQ"} type={textTypes.BlockTitle} />
                 </div>
                 <div className={classNames([styles.faq__content])}>
-                    <FaqItem
-                        title={"What is Stels and how is it revolutionizing the market-making landscape?"}
-                        text={"Stels is a cutting-edge platform designed to redefine market management and yield generation. By offering advanced AI-powered automation and algorithmic strategies, Stels empowers both projects with their own tokens and individual investors to maximize efficiency, returns, and control in the dynamic world of digital finance."}
-                    />
+                    <div data-animation-id={"faq"} ref={animation.faq.refs[0]} className={"animate__animated"}>
+                        <FaqItem
+                            title={"What is Stels and how is it revolutionizing the market-making landscape?"}
+                            text={"Stels is a cutting-edge platform designed to redefine market management and yield generation. By offering advanced AI-powered automation and algorithmic strategies, Stels empowers both projects with their own tokens and individual investors to maximize efficiency, returns, and control in the dynamic world of digital finance."}
+                        />
+                    </div>
+                    <div data-animation-id={"faq"} ref={animation.faq.refs[1]} className={"animate__animated"}>
                     <FaqItem
                         title={"How does the BotBox system enhance my market-making capabilities?"}
-                        text={"The BotBox system allows users to curate a unique trio of bots from a selection of 10 distinct options. This specialized combination is designed for collaborative efficiency and leverages pooled liquidity. With the integration of neuronic analysis in our AI-prefix bots, users can make informed decisions and navigate market intricacies with enhanced precision."}
+                        text={"The BotBox system allows users to curate a unique trio of bots from a selection of 12 distinct options. This specialized combination is designed for collaborative efficiency and leverages pooled liquidity. With the integration of neuronic analysis in our AI-prefix bots, users can make informed decisions and navigate market intricacies with enhanced precision."}
                     />
+                    </div>
+                    <div data-animation-id={"faq"} ref={animation.faq.refs[2]} className={"animate__animated"}>
                     <FaqItem
                         title={"How does the Graph token integrate with Stels and what benefits does it offer?"}
                         text={"The Graph token serves as a membership key to unlock Stels' full range of features and automation systems. Built on the reliable Gliesereum blockchain, this exclusive token not only grants premium access but also ensures seamless integration within our ecosystem. Users can easily monitor and manage their Graph tokens through the Gliesereum wallet, experiencing efficiency and transparency in every transaction."}
                     />
+                    </div>
+                    <div data-animation-id={"faq"} ref={animation.faq.refs[3]} className={"animate__animated"}>
                     <FaqItem
                         title={"What assurances does Stels provide for individual investors?"}
                         text={"For individual investors, capital return and security are paramount. Stels offers a platform where they can maintain uninterrupted control over their funds, which always remain on the exchange. By granting access to advanced algorithms, Stels ensures maximized returns while also mitigating risks, including concerns of impermanent loss."}
                     />
+                    </div>
+                    <div data-animation-id={"faq"} ref={animation.faq.refs[4]} className={"animate__animated"}>
                     <FaqItem
                         title={"How does Stels cater to projects with their distinct tokens?"}
                         text={"Projects with their own tokens often require sophisticated market-making services. Stels provides enhanced control over the market-making process, cost-effective solutions, and access to the best algorithmic strategies in the marketplace. This ensures tailored and precise market-making aligned with the unique goals of each project."}
                     />
+                    </div>
                 </div>
             </section>
         </div>

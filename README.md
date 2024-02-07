@@ -23,7 +23,7 @@
 ---
 
 ### 🧠 Revolutionary Tech Architecture
-- 🤖 **10 Specialized Bots:** Meet Botboxes, the new generation of AI-driven teams dedicated to maximizing your market performance.
+- 🤖 **12 Specialized Bots:** Meet Botboxes, the new generation of AI-driven teams dedicated to maximizing your market performance.
 - 🧠 **Neuronic Control Module:** Make data-driven decisions in real-time with our cutting-edge neuronic system.
 
 ---

@@ -4,7 +4,7 @@ import { Text, textTypes } from '../../shared/Text/Text';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import ghIcon from "../assets/Github_white.svg";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo-stels.svg";
 import menuIcon from "../assets/menu.svg";
 import closeIcon from "../assets/close.svg";
 
@@ -64,9 +64,9 @@ export const Header = () => {
         <header className={classNames([styles.header])}>
             <nav className={classNames("container", styles.content)}>
                 <div className={styles.part}>
-                    <Link to="/" className={classNames([styles.logo, "hover"])}>
+                    <a href="/#intro" className={classNames([styles.logo, "hover"])}>
                         <img src={logo} alt="logo" />
-                    </Link>
+                    </a>
 
                     <ul className={styles.links_list}>
                         <li className={classNames([styles.nav_link_y, "hover"])}>

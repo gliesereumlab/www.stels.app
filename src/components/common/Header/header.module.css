@@ -1,11 +1,11 @@
 .header {
-    height: 88px;
+    height: 80px;
     background: var(--surface-30, rgba(30, 31, 32, 0.30));
     backdrop-filter: blur(15px);
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 3;
+    z-index: 20;
 }
 
 .content {
@@ -78,6 +78,11 @@
     justify-content: center;
 }
 
+.logo img {
+    width: 56px;
+    height: 56px;
+}
+
 @media screen and (max-width: 1200px) {
     .header {
         height: 88px;
@@ -97,7 +102,6 @@
         position: fixed;
         width: 100%;
         top: 0;
-        z-index: 20;
     }
 }
 

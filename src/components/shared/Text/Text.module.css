@@ -5,25 +5,25 @@
 }
 
 .title_page {
-    font-size: 112px;
+    font-size: 80px;
     font-weight: 700;
     line-height: 100%;
     letter-spacing: -2.8px;
 }
 
 .title_block {
-    font-size: 84px;
+    font-size: 80px;
     font-weight: 700;
     line-height: 110%;
     letter-spacing: -2.1px;
 }
 
 .title_text {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 130%;
+    line-height: 120%;
     letter-spacing: -0.36px;
-    width: calc(70%);
+    width: calc(80%);
     color: var(--accent-color);
 }
 

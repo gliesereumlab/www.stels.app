@@ -14,6 +14,13 @@
 }
 
 @media screen and (min-height: 1440px) {
+    .intro_bg_wrapper {
+        max-height: auto;
+        overflow-y: hidden;
+    }
+}
+
+@media screen and (min-height: 1440px) {
     .bg1 {
         max-height: 100vh;
     }
@@ -23,7 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 132px;
+    margin-top: 150px;
 }
 
 .intro__title {
@@ -61,7 +68,8 @@
 }
 
 .text_info_title {
-    color: var(--black-100)
+    color: var(--black-100);
+    width: auto;
 }
 
 .text_info__reg_text {
@@ -135,7 +143,7 @@
 
 .text_info_re {
     max-width: 920px;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
 .last_text_block_content {
@@ -222,7 +230,7 @@
     }
 
     .text_info__reg_text {
-        margin: 48px 0 16px;
+        margin: 48px auto 16px;
     }
 
     .text_info_re {
